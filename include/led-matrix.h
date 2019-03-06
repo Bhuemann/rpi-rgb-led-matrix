@@ -200,7 +200,8 @@ public:
   // then.
   // Returns 'false' if it couldn't start because GPIO was not set yet.
   bool StartRefresh();
-
+  void StopRefresh();
+  
   // Apply a pixel mapper. This is used to re-map pixels according to some
   // scheme implemented by the PixelMapper. Does not take ownership of the
   // mapper. Mapper can be NULL, in which case nothing happens.

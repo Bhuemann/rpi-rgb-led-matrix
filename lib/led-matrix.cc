@@ -359,6 +359,18 @@ bool RGBMatrix::StartRefresh() {
   return updater_ != NULL;
 }
 
+
+void RGBMatrix::StopRefresh(){
+  if(updater_){
+    updater_->Stop();
+    updater_->WaitStopped();
+    
+    delete updater_;
+    updater_ = NULL;
+  }
+}
+  
+  
 FrameCanvas *RGBMatrix::CreateFrameCanvas() {
   FrameCanvas *result =
     new FrameCanvas(new Framebuffer(params_.rows,
